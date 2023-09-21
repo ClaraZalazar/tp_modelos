@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
+const { list, recomended, detail } = require('../controllers/moviesController');
 const moviesController = require('../controllers/moviesController');
 
-router.get('/movies', moviesController.list);
-router.get('/movies/new', moviesController.new);
-router.get('/movies/recommended', moviesController.recomended);
-router.get('/movies/detail/:id', moviesController.detail);
-
+router.get('/', list)
+router.get('/new', moviesController.new)
+router.get('/recommended', recomended)
+router.get('/detail/:id', detail)
 
 module.exports = router;

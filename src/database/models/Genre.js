@@ -1,38 +1,37 @@
-module.exports = (sequelize, dataTypes) => {
 
+module.exports = (sequelize, DataTypes) => {
     const alias = "Genre";
 
     const cols = {
-        id : {
-            type : dataTypes.INTEGER.UNSIGNED,
-            primaryKey : true,
-            allowNull : false,
-            autoIncrement : true,
+        id: {
+            type: DataTypes.INTEGER.UNSIGNED,
+            primaryKey: true,
+            allowNull: false,
+            autoIncrement: true,
         },
-        name : {
-            type : dataTypes.STRING(100),
-            allowNull : false,
+        name: {
+            type: DataTypes.STRING(100),
+            allowNull: false,
         },
-        ranking : {
-            type : dataTypes.INTEGER.UNSIGNED,
-            allowNull : false,
-            unique : true
+        ranking: {
+            type: DataTypes.INTEGER.UNSIGNED,
+            allowNull: false,
+            unique: true,
         },
-        active : {
-            type : dataTypes.BOOLEAN,
-            allowNull : false, 
-            defaultValue : 1,
-        }
-    }
+        active: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false,
+            defaultValue: 1,
+        },
+    };
 
     const config = {
-        tableName : "genres",
-        timestamps : true,
-        underscored : true
-    }
+        tableName: "genres",
+        timestamps: true,
+        underscored: true,
+    };
 
+    const Genre = sequelize.define(alias, cols, config);
 
-    const Movie = sequelize.define(alias, cols, config);
-
-    return Movie
-}
+    return Genre;
+};

@@ -37,9 +37,11 @@ Object.keys(db).forEach(modelName => {
   }
 });
 
+//AGREGADO
 sequelize.authenticate()
-  .then(() => console.log('Conexión exitosa!!!'))
-  .catch((error) => console.log('Upss, hubo un error en la conexión', error))
+  .then(() => console.log('Conexión exitosa.'))
+  .catch((error) => console.log('Ups, hubo un error en la conexión', error))
+//
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
